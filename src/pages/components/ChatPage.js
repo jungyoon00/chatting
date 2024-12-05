@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { database } from "../../db/firebaseConfig";
-import { collection, doc, onSnapshot, orderBy, query, getDoc, addDoc, serverTimestamp } from "firebase/firestore";
+import { collection, doc, onSnapshot, orderBy, query, getDoc, addDoc, serverTimestamp, limit } from "firebase/firestore";
 import "../../style/ChatPage.css";
 
 function ChatPage(props) {
@@ -57,7 +57,7 @@ function ChatPage(props) {
         const docRef = doc(database, "ChatRooms", roomID);
         const messagesRef = collection(docRef, "history");
 
-        const q = query(messagesRef, orderBy("time", "asc")); // 오래된 메시지 순으로 정렬
+        const q = query(messagesRef, orderBy("time", "asc"), limit(100)); // 오래된 메시지 순으로 정렬
 
         const unsubscribe = onSnapshot(q, (snapshot) => {
             const messages = snapshot.docs.map((doc) => ({
