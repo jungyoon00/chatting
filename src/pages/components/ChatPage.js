@@ -64,7 +64,7 @@ function ChatPage(props) {
                 id: doc.id,
                 ...doc.data(),
             }));
-            setMessages(messages);
+            setMessages(messages.reverse());
         });
 
         return unsubscribe;
