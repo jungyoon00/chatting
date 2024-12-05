@@ -1,0 +1,40 @@
+.user-wrapper {
+    width: 100%;
+    max-width: 400px;
+    background-color: #243642;
+    color: #E2F1E7;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    font-family: 'Rubik', sans-serif;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.user-wrapper div {
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #E2F1E7;
+}
+
+.user-wrapper div span {
+    color: #629584; /* 보조 강조 색상 */
+}
+
+button.editInfo {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #387478;
+    color: #E2F1E7;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+button.editInfo:hover {
+    background-color: #629584;
+}

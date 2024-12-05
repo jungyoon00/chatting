@@ -1,0 +1,86 @@
+@import
+url('https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+body, html{
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E2F1E7;
+    font-family: 'Rubik', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.wrapper {
+    width: 300px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background-color: #243642;
+    color: #E2F1E7;
+    padding: 20px;
+}
+
+.account-container {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #243642;
+}
+
+.account-container span {
+  color: #E2F1E7;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.logout {
+  background-color: #387478;
+  color: #E2F1E7;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.logout:hover {
+  background-color: #629584;
+}
+
+.bottom-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 45px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #387478;
+  border-top: 2px solid grey;
+  padding: 0 10px;
+  height: 45px;
+}
+
+nav > div {
+  text-align: center;
+  flex: 1;
+  height: 100%;
+  line-height: 45px;
+  color: #E2F1E7;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+nav > div:hover {
+  background-color: #629584;
+  border-radius: 10px;
+}

@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E2F1E7;
+    font-family: 'Rubik', sans-serif;
+}
+
+.wrapper-login {
+    flex-direction: column;
+    width: 100%;
+    max-width: 450px; /* 최대 너비 설정 */
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #243642;
+    color: #E2F1E7;
+    padding: 20px;
+    box-sizing: border-box; /* 패딩 포함 너비 계산 */
+    overflow: hidden;
+}
+
+.main-container {
+    display: flex;
+    overflow: hidden; /* 탭 전환 시 확장 방지 */
+}
+
+.selector {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.selector .tab {
+    padding: 10px 0;
+    font-size: 18px;
+    color: #E2F1E7;
+    cursor: pointer;
+    transition: color 0.3s, border-bottom 0.3s;
+    font-weight: bold;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]:checked + label.tab {
+    color: #387478;
+    border-bottom: 2px solid #387478;
+    font-weight: bold;
+}
+
+.main-container {
+    display: flex;
+}
+
+.signin-container,
+.signup-container {
+    width: 100%;
+    display: none;
+}
+
+input[type="radio"]#signin-tab:checked ~ .main-container .signin-container {
+    display: block;
+    width: 100%;
+}
+
+input[type="radio"]#signup-tab:checked ~ .main-container .signup-container {
+    display: block;
+    width: 100%;
+}
+
+.box {
+    background-color: #387478;
+    padding: 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+h4 {
+    font-size: 24px;
+    color: #E2F1E7;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h4 span {
+    color: #629584;
+}
+
+input[type="text"],
+input[type="password"],
+button.confirm,
+button.signin {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box; /* 모든 요소에 일관된 너비 계산 */
+    font-size: 16px;
+}
+
+/* 색상 설정 */
+input[type="text"],
+input[type="password"] {
+    background-color: #E2F1E7;
+    color: #243642;
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+    color: #629584;
+}
+
+button.confirm,
+button.signin {
+    background-color: #243642;
+    color: #E2F1E7;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button.confirm:hover,
+button.signin:hover {
+    background-color: #629584;
+}
+
+.signin-error,
+.signup-error {
+    color: #D32F2F;
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.loader {
+    border: 2px solid #e2f1e7;
+    border-top: 2px solid #387478;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    animation: spin 0.8s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

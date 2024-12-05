@@ -1,0 +1,143 @@
+.mypage-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    margin: auto;
+    color: #E2F1E7;
+    font-family: 'Rubik', sans-serif;
+}
+
+.nums {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.friends-num, .chats-num {
+    display: flex;
+    flex-direction: column; /* 위아래 정렬 */
+    align-items: center;
+    text-align: center;
+    width: 150px; /* 각 div의 너비를 일정하게 */
+}
+
+.friends-num .toolbar, .chats-num .toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.button-group {
+    display: flex;
+    gap: 1px; /* 버튼 간격 */
+    justify-content: none;
+}
+
+.add-friend, .del-friend, .add-chat, .del-chat {
+    background-color: #629584;
+    border: none;
+    color: #E2F1E7;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.add-friend:hover, .add-chat:hover {
+    background-color: #387478;
+}
+
+.del-friend:hover, .del-chat:hover {
+    background-color: #8C4C51;
+}
+
+
+span {
+    margin: 8px 0;
+    font-weight: 500;
+}
+
+.friends-num span:last-child, .chats-num span:last-child {
+    font-size: 40px;
+    font-weight: 700;
+    color: #E2F1E7;
+}
+
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #243642;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    width: 400px;
+    max-height: 500px;
+    overflow-y: auto;
+    z-index: 1000;
+    color: #E2F1E7;
+}
+
+.popup h3 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.popup input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #387478;
+    border-radius: 4px;
+    outline: none;
+    font-size: 14px;
+}
+
+.popup-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.popup-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #387478;
+}
+
+.popup-list button {
+    background-color: #8C4C51;
+    color: #E2F1E7;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.popup-list button:hover {
+    background-color: #C75D63;
+}
+
+.close-popup {
+    display: block;
+    margin: 15px auto 0;
+    padding: 8px 16px;
+    background: #387478;
+    color: #E2F1E7;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.close-popup:hover {
+    background: #629584;
+}

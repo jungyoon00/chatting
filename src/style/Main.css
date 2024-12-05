@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik', sans-serif;
+    background-color: #E2F1E7;
+    color: #243642;
+}
+
+.login-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.app-header {
+    margin-bottom: 40px;
+}
+
+.app-header h1 {
+    font-size: 36px;
+    color: #387478;
+}
+
+.app-header p {
+    font-size: 18px;
+    color: #629584;
+}
+
+.content-section {
+    flex: 1;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.intro, .features {
+    margin-bottom: 30px;
+}
+
+.features ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.features li {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #387478;
+}
+
+.cta {
+    margin: 20px 0;
+}
+
+.login-btn {
+    padding: 12px 20px;
+    font-size: 18px;
+    background-color: #243642;
+    color: #E2F1E7;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #387478;
+}
+
+.app-footer {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.app-logo {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.app-footer p {
+    font-size: 14px;
+    color: #629584;
+}
