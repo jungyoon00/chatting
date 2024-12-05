@@ -148,6 +148,48 @@ button.signin:hover {
     display: inline-block;
 }
 
+/* 버튼 상태별 스타일 */
+button.default {
+    background-color: #243642;
+    color: #E2F1E7;
+}
+
+button.loading {
+    background-color: #387478;
+    color: #E2F1E7;
+    position: relative;
+}
+
+button.success {
+    background-color: #4CAF50;
+    color: #E2F1E7;
+}
+
+button.error {
+    background-color: #f44336;
+    color: #E2F1E7;
+}
+
+/* 로딩 상태에서의 loader */
+button.loading .loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+}
+
+/* 버튼 hover 상태 */
+button.default:hover {
+    background-color: #629584;
+}
+
+button.loading:hover,
+button.success:hover,
+button.error:hover {
+    background-color: inherit; /* 상태에 따라 hover 스타일 유지 */
+}
+
 @keyframes spin {
     0% {
         transform: rotate(0deg);

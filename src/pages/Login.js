@@ -14,6 +14,9 @@ function Login() {
     const [userID, setUserID] = useState('');
     const [userPW, setUserPW] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [buttonState, setButtonState] = useState("default");
+
+    const resetButtonState = () => setTimeout(() => setButtonState("default"), 2000);
 
     const handleUserID = (e) => {
         setUserID(e.target.value);
@@ -42,30 +45,36 @@ function Login() {
 
     const onClickConfirmBtn = () => {
         setIsLoading(true);
+        setButtonState("loading");
 
-        const userData = {
-            userID: userID,
-            userPW: userPW,
-        };
+        const userData = { userID, userPW };
 
         fetch("http://192.168.0.50:3001/login", {
             method: "post",
-            headers: {
-                "content-type": "application/json",
-            },
+            headers: { "content-type": "application/json" },
             body: JSON.stringify(userData),
-        }).then(
-            (res) => res.json()
-        ).then((json) => {
-            if (json.isLogin === "True") {
-                setGlobalUserID(userID);
-                setActivate(true);
-                navigate("/home");
-            } else {
-                alert(json.isLogin);
-            }
-        });
-    }
+        })
+            .then((res) => res.json())
+            .then((json) => {
+                setIsLoading(false);
+                if (json.isLogin === "True") {
+                    setGlobalUserID(userID);
+                    setActivate(true);
+                    setButtonState("success");
+                    navigate("/home");
+                } else {
+                    setButtonState("default");
+                    alert(json.isLogin);
+                }
+                resetButtonState();
+            })
+            .catch((err) => {
+                setIsLoading(false);
+                setButtonState("error");
+                console.error(err);
+                resetButtonState();
+            });
+    };
 
     const userAdder = async (userID) => {
         try {
@@ -74,32 +83,39 @@ function Login() {
         } catch (error) {
             console.error("Error creating user: ", error);
         }
-    }
+    };
     
     const onClickSigninBtn = () => {
         setIsLoading(true);
+        setButtonState("loading");
 
-        const userData = {
-            getID: getID,
-            getPW: getPW,
-            getPWCheck: getPWCheck,
-        };
+        const userData = { getID, getPW, getPWCheck };
 
         fetch("http://192.168.0.50:3001/signin", {
             method: "post",
-            headers: {
-                "content-type": "application/json",
-            },
+            headers: { "content-type": "application/json" },
             body: JSON.stringify(userData),
-        }).then((res) => res.json()).then((json) => {
-            if (json.isSuccess === "True") {
-                userAdder(getID);
-                alert("Your account has been created.");
-            } else {
-                alert(json.isSuccess);
-            }
-        });
-    }
+        })
+            .then((res) => res.json())
+            .then((json) => {
+                setIsLoading(false);
+                if (json.isSuccess === "True") {
+                    userAdder(getID);
+                    setButtonState("success");
+                    alert("Your account has been created.");
+                } else {
+                    setButtonState("error");
+                    alert(json.isSuccess);
+                }
+                resetButtonState();
+            })
+            .catch((err) => {
+                setIsLoading(false);
+                setButtonState("error");
+                console.error(err);
+                resetButtonState();
+            });
+    };
 
     const [tab, setTab] = useState("signin");
 
@@ -133,11 +149,14 @@ function Login() {
                         <input type="text" name="userID" placeholder="ID" id="id" autoComplete="off" value={userID} onChange={handleUserID} />
                         <input type="password" name="userPW" placeholder="PASSWORD" id="password" autoComplete="off" value={userPW} onChange={handleUserPW} />
                         <button
-                            className="confirm"
+                            className={`confirm ${buttonState}}`}
                             onClick={onClickConfirmBtn}
                             disabled={isLoading}
                         >
-                            {isLoading ? <span className="loader"></span> : "Log In"}
+                            {buttonState === "loading" && <span className="loader"></span>}
+                            {buttonState === "success" && "✔"}
+                            {buttonState === "error" && "✘"}
+                            {buttonState === "default" && "Log In"}
                         </button>
                     </div>
                 </div>
@@ -149,11 +168,14 @@ function Login() {
                         <input type="password" name="getPW" placeholder="PASSWORD" id="password" autoComplete="off" value={getPW} onChange={handleGetPW} />
                         <input type="password" name="getPWCheck" placeholder="REPEAT" id="password" autoComplete="off" value={getPWCheck} onChange={handleGetPWCheck} />
                         <button
-                            className="signin"
+                            className={`signin ${buttonState}`}
                             onClick={onClickSigninBtn}
                             disabled={isLoading}
                         >
-                            {isLoading ? <span className="loader"></span> : "Sign In"}
+                            {buttonState === "loading" && <span className="loader"></span>}
+                            {buttonState === "success" && "✔"}
+                            {buttonState === "error" && "✘"}
+                            {buttonState === "default" && "Sign In"}
                         </button>
                     </div>
                 </div>
